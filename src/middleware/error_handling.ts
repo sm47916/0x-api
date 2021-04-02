@@ -2,9 +2,6 @@ import { APIBaseError, BadRequestError, ErrorUtils as BaseErrorUtils, isAPIError
 import * as HttpStatus from 'http-status-codes';
 
 import { APIErrorCodes, apiErrorCodesToReasons } from '../errors';
-import { logger } from '../logger';
-
-export { isAPIError, isRevertError } from '@0x/api-utils';
 
 class ErrorUtils extends BaseErrorUtils {
     public static generateError(err: Error): any {
@@ -20,9 +17,6 @@ class ErrorUtils extends BaseErrorUtils {
             };
         }
         return this.generateError(err);
-    }
-    constructor() {
-        super(logger);
     }
 }
 

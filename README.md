@@ -136,8 +136,24 @@ ETHEREUM_RPC_URL=http://ganache:8545
 Then run
 
 ```
-$ docker-compose up
+$ docker-compose -f docker-compose-test-ganache.yml
 $ yarn dev
+```
+#### Developing on Ropsten
+
+export env vars to point to Chain id and ethereum rpc url:
+```sh
+export CHAIN_ID=123
+export ETHEREUM_RPC_URL=https://example.com/id
+```
+
+Run deployment with existing `0xapi:latest` docker image
+```sh
+docker-compose -f docker-compose.yml up -d
+```
+Alternatively it is possible to specify `--build` argument to rebuild the image from local foler and then  run/update the deployment
+```sh
+docker-compose -f docker-compose.yml up -d  --build
 ```
 
 ## Testing
@@ -152,6 +168,7 @@ Tip: Test suites set up and teardown sandboxed environments, so using `.only` on
 -   `yarn test` - Test the code
 -   `yarn lint` - Lint the code
 -   `yarn start` - Starts the API
+-   `yarn start:db_migrate` - to be used in containers, runs migrations and starts the API
 -   `yarn dev` - Starts the API in dev-mode
 -   `yarn watch` - Watch the source code and rebuild on change
 -   `yarn prettier` - Auto-format the code

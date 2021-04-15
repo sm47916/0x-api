@@ -1,4 +1,16 @@
+.circleci
+.drone.yml
+.editorconfig
+.env*
+.git*
+.github/
+.prettie*
+*.md
+*.MD
+*ignore
+0x_mesh_test/
+docker-compose*
+Dockerfile
 node_modules
 postgres
 0x_mesh
-.circleci
